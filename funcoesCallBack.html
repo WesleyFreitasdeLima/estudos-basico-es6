@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Aula de Funções Callback
+    </title>
+
+    <script>
+        /* 
+            Funções de callback são funções encaminhadas como parâmetro para outras funções
+        */
+
+        function exibirArtigo(id, callbackSucesso, callbackErro) {
+            // Lógica: recuperar o ID via requisição HTTP
+            if (false) {
+                callbackSucesso('Funções de callback em JS', 'Funções muito utilizadas');
+            } else {
+                callbackErro('Erro ao recuperar os dados');
+            }
+
+        }
+        
+        const callbackSucesso = function (titulo, descricao) {
+            document.write(`<h1>${titulo}</h1>`);
+            document.write('<hr />');
+            document.write(`<p>${descricao}</p>`);
+        }
+
+        const callbackErro = function (erro) {
+            document.write(`<p>${erro}</p>`);
+        }
+
+        exibirArtigo(1, callbackSucesso, callbackErro)
+    </script>
+</head>
+
+<body></body>
+
+</html>

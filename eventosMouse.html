@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Eventos do Mouse</title>
+
+    <script>
+        function acaoClick() {
+            alert('Evento disparado pelo click!');
+        }
+
+        function acaoDbClick() {
+            alert('Evento disparado pelo duplo click!');
+        }
+
+        function acaoSoltouBtnMouse() {
+            alert('Evento disparado ao soltar o botão do mouse!');
+        }
+
+        function acaoMouseSobre() {
+            alert('Evento disparado ao colocar o mouse sobre o elemento!');
+        }
+
+        function acaoMouseSaiu() {
+            alert('Evento disparado ao tirar o mouse sobre o elemento!');
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="acaoClick()">Teste click</button> <br />
+    <button ondblclick="acaoDbClick()">Teste duplo click</button> <br />
+    <button ondblclick="acaoSoltouBtnMouse()">Teste soltar click</button> <br />
+
+    <div style="background-color: grey; height: 150px; width: 150px;" onmouseover="acaoMouseSobre()"
+        onmouseout="acaoMouseSaiu()"></div>
+</body>
+
+</html>

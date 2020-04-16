@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Aula de Funções Nativas para manipular Datas
+    </title>
+
+    <script>
+
+        // Obtém a data completa do sistema operacional
+        let data = new Date();
+        document.write(data);
+        document.write('<br />');
+
+        // Obter apenas o dia, 1-31
+        document.write(data.getDate());
+        document.write('<br />');
+
+        // Obter apenas o mês, 0-11
+        // Somamos o número 1 para exibi-lo da forma real
+        document.write(data.getMonth() + 1);
+        document.write('<br />');
+
+        // Obter apenas o ano
+        document.write(data.getFullYear());
+        document.write('<hr />');
+
+
+
+        // Adicionar/Remover dias da data
+        data.setDate(data.getDate() + 1);
+        document.write(data.toString());
+        document.write('<br />');
+
+        // Adicionar/Remover meses da data
+        data.setMonth(data.getMonth() + 2);
+        document.write(data.toString());
+        document.write('<br />');
+
+        // Adicionar/Remover anos da data
+        data.setFullYear(data.getFullYear() + 20);
+        document.write(data.toString());
+        document.write('<hr />');
+
+
+
+        // Calcular datas
+        let data1 = new Date(2020, 1, 17); // 17/02/2020
+        let data2 = new Date(1993, 1, 5);  // 05/02/1993
+
+        // Exibe as datas de forma textual
+        document.write(data1.toString());
+        document.write('<br />');
+        document.write(data2.toString());
+        document.write('<hr />');
+
+        // Converter as datas para um formato que possamos calcular
+        document.write(data1.getTime()); // Obtém a data em milisegundos, de 01/01/1970 até a data informada
+        document.write('<br />');
+        document.write(data2.getTime());
+        document.write('<hr />');
+
+        // Encontrar a quantidades de milisegundos entre data1 e data2, 
+        // convertendo ele em um numero absoluto com a função Math.abs
+        let milisegundosEntreDatas = Math.abs(data1.getTime() - data2.getTime());
+        document.write(milisegundosEntreDatas);
+        document.write('<hr />');
+
+        // Converte os milisegundos para dias
+        // 1 tem 24 hrs, 1 hora tem 60 minutos, 1 minuto tem 60 segundos, 1 segundo tem 1000 milisegundos
+        let milisegundosDia = (1 * 24 * 60 * 60 * 1000);
+        document.write(`Um dia tem: ${milisegundosDia} milisegundos`);
+        document.write('<hr />');
+
+        // Converte milisegundos para dias 
+        let diasEntreDatas = Math.ceil(milisegundosEntreDatas / milisegundosDia);
+        document.write(`A diferença entre data1 e data2 é de ${diasEntreDatas} dias.`);
+        document.write('<br />');
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

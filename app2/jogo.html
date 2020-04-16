@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mata mosquito - Em jogo....</title>
+
+    <link rel="stylesheet" href="jogo.css" />
+    <script src="jogo.js"></script>
+</head>
+
+<body onresize="ajustaTamanhoPalcoJogo()">
+    <div class="painel">
+        <div class="vidas">
+            <img id="vida1" src="imagens/coracao_cheio.png" />
+            <img id="vida2" src="imagens/coracao_cheio.png" />
+            <img id="vida3" src="imagens/coracao_cheio.png" />
+            <img id="vida4" src="imagens/coracao_cheio.png" />
+            <img id="vida5" src="imagens/coracao_cheio.png" />
+        </div>
+
+        <div>
+            Tempo restante: <span id='cronometro'></span>
+        </div>
+    </div>
+
+    <script>
+        jogar();
+        /*
+        criarPalcoJogo();
+
+        const jogoRodando = setInterval(() => {
+
+            criarMosquito();
+
+        }, 2000);
+        */
+    </script>
+</body>
+
+</html>

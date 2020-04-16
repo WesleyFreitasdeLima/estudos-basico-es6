@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Aula de Estrutura de repetição - For In
+    </title>
+    <script>
+        let listaConvidados = Array();
+        listaConvidados['a'] = 'José';
+        listaConvidados[2] = 'Jamilton';
+        listaConvidados['zebra'] = 'José';
+        listaConvidados[-1] = 'Ana';
+        listaConvidados[true] = 'Maria';
+
+        console.log(listaConvidados);
+
+        for (let x in listaConvidados) {
+            document.write(`índice '${x}' valor '${listaConvidados[x]}' <br />`);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

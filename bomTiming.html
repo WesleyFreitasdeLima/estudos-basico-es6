@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de BOM - Timing</title>
+    <script>
+        
+        // Executa a ação repetindo de acordo com o intervalo
+        let i = 5;
+        const intervalo = setInterval(() => {
+            document.write(`Teste interval ${i} <br />`);
+            i--;
+
+            if (i === 0) {
+               // window.location.reload();
+                clearInterval(intervalo);
+            };
+        }, 1000);
+
+
+        // Executa uma vez após tempo informado
+        setTimeout(() => {
+            document.write('Teste timeout.<br />');
+        }, 6000);
+
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>

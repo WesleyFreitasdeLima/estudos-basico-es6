@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Tratamento de Erros
+    </title>
+
+    <script>
+
+        // Exemplificando com o Netflix
+        let video = Array();
+
+        video[1] = Array();
+        video[1]['nome'] = 'Death Note';
+        video[1]['categoria'] = 'Anime';
+
+        function getVideo(video) {
+
+            try {
+
+                console.log(video[0]['nome']);
+
+            } catch (e) {
+
+                console.log('Agora podemos tratar esse erro');
+                
+                console.log(e);
+
+                throw new Error('Houve um erro lançado');
+
+            } finally {
+
+                console.log('Sempre passa por aqui (try/catch)');
+
+            }
+
+            console.log('O app não morreu');
+        }
+
+        getVideo(undefined);
+
+    </script>
+</head>
+
+<body></body>
+
+</html>

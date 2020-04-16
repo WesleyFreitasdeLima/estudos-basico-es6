@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 3</title>
+
+    <script>
+
+        let n1 = parseFloat(prompt("Digite um número:"));
+        let op = prompt("Digite uma operação ( soma ou subtração ):");
+        let n2 = parseFloat(prompt("Digite outro número:"));
+
+        const calculo = function (n1, n2, op) {
+            let resultado = (op === 'soma') ? n1 + n2 : n1 - n2;
+
+            return resultado;
+        }
+
+        document.write(`O resultado é: ${calculo(n1, n2, op)}`);
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

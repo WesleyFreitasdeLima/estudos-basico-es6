@@ -1,0 +1,105 @@
+body {
+    background-image: url(imagens/bg.jpg);
+    background-repeat: no-repeat;
+}
+
+.menu-jogo{
+    width: 100%; 
+    text-align: center;
+}
+
+.menu-dificuldades{
+    width:  250px;
+    height: 50px;
+    border: solid 7px gray;
+    border-radius: 80px;
+    background: white;
+    font-weight: bolder;
+    font-size: 20px;
+    text-align: center;
+}
+
+.button-start {
+    width: 200px;
+    height: 70px;
+    border: solid 7px red;
+    border-radius: 80px;
+    background: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.button-restart {
+    width: 200px;
+    height: 70px;
+    border: solid 7px orange;
+    border-radius: 80px;
+    background: white;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.game-over {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.vitoria {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.mosquito1 {
+    width: 50px;
+    height: 50px;
+}
+
+.mosquito2 {
+    width: 70px;
+    height: 70px;
+}
+
+.mosquito3 {
+    width: 90px;
+    height: 90px;
+}
+
+.ladoA {
+    transform: scaleX(1);
+}
+
+.ladoB {
+    transform: scaleX(-1);
+}
+
+.painel {
+    position: absolute;
+    width: 190px;
+    padding: 10px;
+    left: 0px;
+    bottom: 0px;
+    border-top: solid 1px white;
+    background-color: white;
+    opacity: 70%;
+}
+
+.vidas {
+    float: left;
+}
+
+.cronometro {
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+}

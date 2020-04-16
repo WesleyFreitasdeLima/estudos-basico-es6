@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio 4</title>
+
+    <script>
+        function alterarFundoElementoFocado(elemento) {
+            elemento.style.background = '#FFFF00';
+        }
+
+        function alterarFundoElementoDesfocado(elemento) {
+            if (elemento.value.length < 3) {
+                elemento.style.background = '#FF0000';
+            } else {
+                elemento.style.background = '#00FF00';
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+
+    <input type="text" onfocus="alterarFundoElementoFocado(this)" onblur="alterarFundoElementoDesfocado(this)" />
+
+</body>
+
+</html>

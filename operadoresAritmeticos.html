@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Aula de Operadores Aritméticos
+    </title>
+
+    <script>
+        /*
+           Operadores aritméticos:
+         - Adição (+): Soma valores;
+         - Subtração (-): Diferença entre valores;
+         - Multiplicação (*): Produto dos valores;
+         - Divisão (/): Quociente dos valores;
+         - Módulo (%): Resto existente de uma operação;
+         - Incremento (++): Pré/pós incremento;
+         - Decremento (--): Pré/pós decremento;
+        */
+
+        let num1 = parseInt(prompt('Digite um número:'));
+        let num2 = parseInt(prompt('Digite outro número:'));
+        document.write(`<h1>Você digitou o número ${num1} e ${num2}</h3><br />`);
+
+        document.write(`A soma de ${num1} e ${num2} é: ${num1 + num2} <br />`);
+        document.write(`A subtração de ${num1} e ${num2} é: ${num1 - num2} <br />`);
+        document.write(`A multiplicação de ${num1} e ${num2} é: ${num1 * num2} <br />`);
+        document.write(`A divisão de ${num1} e ${num2} é: ${num1 / num2} <br />`);
+        document.write(`O módulo de ${num1} e ${num2} é: ${num1 % num2} <br />`);
+        document.write(`O incremento de ${num1} é: ${++num1} <br />`);
+        document.write(`O decremento de ${num1} é: ${--num1} <br />`);
+
+        document.write(`<hr />`);
+        document.write(`<p>Formas resumidas de utilizar operadores aritméticos no processo de atribuição</p>`);
+        document.write(`Teste soma: ${num1 += num2} <br />`);
+        document.write(`Teste subtração: ${num1 -= num2} <br />`);
+        document.write(`Teste multiplicação: ${num1 *= num2} <br />`);
+        document.write(`Teste divisão: ${num1 /= num2} <br />`);
+        document.write(`Teste módulo: ${num1 %= num2} <br />`);
+
+        let frase = '<p>Também é possivel concatenar ';
+        let frase2 = 'strings no processo de atribuição</p>';
+        document.write(`${frase += frase2} <br />`);
+
+        document.write(`<hr />`);
+        document.write(`<p>Precedência de execução das operações aritméticas</p>`);
+        /* 
+            Precedência:
+            1º multiplicação e divisão; 
+            2º soma e subtração;
+
+            () - aplicar precedência
+        */
+        document.write((11 + 5 - 5 * 2) / 2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

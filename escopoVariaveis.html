@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Aula de Escopo de Variáveis
+    </title>
+
+    <script>
+        // JS tem 3 tipos de escopos: global, função e o de bloco
+        let serie = 'Walking Dead'
+
+        if (true){
+            var serie2 = 'Friends'
+
+            document.write(serie);
+        }
+
+        document.write(serie2);
+
+        document.write('<br />');
+
+        function x(){
+            let serie3= 'Stranger Things';
+            document.write(serie);
+            document.write(serie2);
+            document.write(serie3);
+        }
+
+        x();
+    </script>
+</head>
+
+<body></body>
+
+</html>

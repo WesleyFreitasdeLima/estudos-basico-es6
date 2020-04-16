@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Aula de DOM - Manipulando Classes de Elementos
+    </title>
+
+    <style>
+        .estiloInicial {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            width: 200px;
+            height: 400px;
+            border: none;
+        }
+
+        .estilo1 {
+            background-color: #00FF00;
+            color: #000000;
+            width: 200px;
+            height: 400px;
+            border: dotted 1px #000000;
+        }
+
+        .estilo2 {
+            background-color: #0000FF;
+            color: #FFFF00;
+            width: 400px;
+            height: 200px;
+            border: solid 1px #000000;
+        }
+    </style>
+
+    <script>
+        function aplicarClasse(classeSetada) {
+            document.getElementById('quadrado').className = classeSetada;
+        }
+    </script>
+</head>
+
+<body>
+    <h3>Modificando a classe do elemento</h3>
+
+    <button type="button" onclick="aplicarClasse('estilo1')">
+        Aplicar classe 'estilo1'
+    </button>
+
+    <button type="button" onclick="aplicarClasse('estilo2')">
+        Aplicar classe 'estilo2'
+    </button>
+
+    <button type="button" onclick="aplicarClasse('estiloInicial')">
+        Resetar estilo
+    </button>
+
+    <hr />
+
+    <div id="quadrado" class="estiloInicial">
+        Elemento cobaia
+    </div>
+</body>
+
+</html>

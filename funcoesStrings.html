@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Aula de Funções para manipulação de Strings
+    </title>
+
+    <script>
+        let nome = 'Wesley Freitas de Lima';
+
+        // Retorna a qtde de caracteres
+        document.write(nome.length + '<br />');
+
+        // Retorna o caractere informando o indice
+        document.write(nome.charAt(5) + '<br />');
+
+        // Retorna o indice da primeira incidência do caractere informado
+        // Sempre que o caracter nao existir, ele retorna -1
+        document.write(nome.indexOf('e') + '<br />');
+
+        // Substitui um valor valor pesquisado por outro
+        document.write(nome.replace('Freitas', 'F.') + '<br />');
+
+        // Recorta uma parte da estring à partir do indice e a qtde de caracteres informado
+        document.write(nome.substr(7, 20) + '<br />');
+
+        // Convert para maisculo e minusculo
+        document.write(nome.toLocaleUpperCase() + '<br />');
+        document.write(nome.toLocaleLowerCase() + '<br />');
+
+        // Remove os espaços em branco nas extremidades da string
+        nome = ' ' + nome + ' ';
+        document.write('*' + nome.trim() + '*');
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

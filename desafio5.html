@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Desafio 5</title>
+
+    <script>
+        let objetos = Array('Cadeira', 'Impressora', 'Garfo');
+
+        function adicionarObjeto() {
+            let valor_novo_objeto = document.getElementById('objeto').value;
+
+            if (valor_novo_objeto !== '') {
+                let valor_existente = (objetos.indexOf(valor_novo_objeto) === -1) ? false : true;
+
+                if (valor_existente === false) {
+                    objetos.push(valor_novo_objeto);
+                    console.log(objetos);
+                    limparCaixaDeTexto();
+
+                } else {
+                    alert('Objeto já foi adicionado!');
+                }
+
+            } else {
+                alert('Informe uma valor válido!');
+            }
+        }
+
+        function ordernarObjeto() {
+            objetos.sort();
+            console.log(objetos);
+        }
+
+        function limparCaixaDeTexto() {
+            document.getElementById('objeto').value = '';
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="objeto">
+    <button type="button" onclick="adicionarObjeto()">Adicionar</button>
+    <button type="button" onclick="ordernarObjeto()">Ordenar</button>
+</body>
+
+</html>

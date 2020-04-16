@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Aula de Array Ordenação
+    </title>
+    <script>
+        let lista_frutas = Array();
+        lista_frutas[0] = 'Maçã';
+        lista_frutas[1] = 'Uva';
+        lista_frutas[2] = 'Banana';
+        lista_frutas[3] = 'Morango';
+        console.log(lista_frutas);
+
+        // Reordenar o array com base nos valores dos elementos alfanuméricos
+        console.log(lista_frutas.sort());
+
+
+        let lista_numeros = Array();
+        lista_numeros[0] = 66;
+        lista_numeros[1] = 50;
+        lista_numeros[2] = 33;
+        lista_numeros[3] = 31;
+        console.log(lista_numeros);
+
+        // Reordenar o array com base nos valores dos NUMÉRICOS
+        console.log(lista_numeros.sort((a, b) => a - b));
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

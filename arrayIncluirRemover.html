@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Aula de Array Inclusão e Exclusão de Elementos
+    </title>
+    <script>
+        // Array simples
+        let lista_frutas = Array();
+        lista_frutas[0] = 'Banana';
+        lista_frutas[1] = 'Maçã';
+
+        // Incluir elemento no final do array
+        lista_frutas.push('Uva roxa');
+
+        // Incluir elemento no inicio do array
+        lista_frutas.unshift('Uva verde');
+
+        console.log(lista_frutas);
+
+        // Excluir elemento no final do array
+        lista_frutas.pop();
+
+        // Excluir elemento no inicio do array
+        lista_frutas.shift();
+
+        console.log(lista_frutas);
+
+
+        // Array multidimensional
+        let lista_coisas = Array();
+        lista_coisas['frutas'] = Array();
+        lista_coisas['pessoas'] = [];
+
+        lista_coisas['pessoas'].push('Wesley');
+        lista_coisas['pessoas'].unshift('Pedro');
+
+        console.log(lista_coisas);
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

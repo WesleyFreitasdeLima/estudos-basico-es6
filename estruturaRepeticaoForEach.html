@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Aula de Estrutura de repetição - For Each
+    </title>
+    <script>
+        // Foreach em JS é uma função pertencente ao objeto array, mas serve como estrutura de repetição
+
+        let listaFuncionarios = ['Viviane', 'Rosângela', 'Miguel', 'Lucas', 'Fernanda'];
+
+        const callbackForEach = function (valor, indice, array) {
+            document.write(`[${indice}][${valor}] <br />`);
+        }
+
+        listaFuncionarios.forEach(callbackForEach);
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

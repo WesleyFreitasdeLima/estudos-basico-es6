@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Aula de Funções
+    </title>
+
+    <script>
+
+        /*
+            Tipos de funções:
+            - Void: realizam processamento, mas não retornam valor
+            - Retorno: realizam processamento e retornam valor
+        */
+
+        function calcularAreaTerreno(largura, comprimento) {
+            let area = largura * comprimento;
+
+            return area;
+        }
+
+        let largura = prompt('Digite a largura do terreno em metros:');
+        let comprimento = prompt('Digite o comprimento do terreno em metros:');
+        let area = calcularAreaTerreno(largura, comprimento);
+
+        document.write(`O terreno possui ${area} metros quadrados.`);
+    </script>
+</head>
+
+<body></body>
+
+</html>

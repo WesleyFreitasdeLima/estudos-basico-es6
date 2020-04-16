@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Desafio 2 - Calculadores de IMC
+    </title>
+
+    <script>
+        let nome = prompt('Digite seu nome');
+        let altura = prompt('Informe sua altura em centimetros:');
+        let peso = prompt('Informe seu peso:');
+
+        // Converte os dados númericos para float
+        altura = parseFloat(altura);
+        peso = parseFloat(peso);
+
+        // Converte a altura de centimetros para metros
+        altura /= 100;
+
+        // Cálcula o IMC
+        let imc = peso / (altura * altura);
+
+        // Identifica o IMC e o classifica de acordo com o resultado
+        let classificacao = null;
+        if (imc < 16) {
+            classificacao = 'Baixo peso muito grave';
+        } else if (imc >= 16 && imc < 17) {
+            classificacao = 'Baixo peso grave';
+        } else if (imc >= 17 && imc < 18.5) {
+            classificacao = 'Baixo peso';
+        } else if (imc >= 18.5 && imc < 25) {
+            classificacao = 'Peso normal';
+        } else if (imc >= 25 && imc < 30) {
+            classificacao = 'Sobrepeso';
+        } else if (imc >= 30 && imc < 35) {
+            classificacao = 'Obesidade grau I';
+        } else if (imc >= 35 && imc < 40) {
+            classificacao = 'Obesidade grau II';
+        } else if (imc > 40) {
+            classificacao = 'Obesidade grau III';
+        }
+
+        // Exibe resultado
+        document.write(`${nome} possui o índice de massa corporal igual a ${imc}, sendo classificado como ${classificacao}.`);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

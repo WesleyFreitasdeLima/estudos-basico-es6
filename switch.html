@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Aula de comando Switch
+    </title>
+
+    <script>
+        let param = prompt("Digite um numero");
+
+        switch (parseInt(param)) {
+            case 1:
+                document.write('Parametro 1');
+                break; // interrompe a execução do case
+
+            case 2:
+                document.write('Parametro 2');
+                break; // se não usarmos o break, todos case abaixo dele vão ser executados normalmente
+
+            default:
+                document.write('Default');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

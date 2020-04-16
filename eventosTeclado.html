@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula de Eventos do Teclado</title>
+
+    <script>
+        function evento(msg) {
+            alert(`Evento acionado pelo ${msg}`);
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Aciona quando a tecla é pressionada -->
+    <input type="text" onkeydown="evento('onkeydown')" placeholder="Teste key down" /><br />
+
+    <!-- Acionada quando a tecla é solta -->
+    <input type="text" onkeyup="evento('onkeyup')" placeholder="Teste key up" /><br />
+
+    <!-- Acionada quando a tecla é pressionada, mas só funciona se for caractere -->
+    <input type="text" onkeypress="evento('onkeypress')" placeholder="Teste key press" /><br />
+</body>
+
+</html>
