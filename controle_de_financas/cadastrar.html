@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>
+        Controle de Finanças
+    </title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+
+    <script src="app.js"></script>
+</head>
+
+<body>
+    <!-- Menu de navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="index.html">
+            <img src="./img/logo.png" class="d-inline-block align-top" alt=""> Controle de Finanças
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarPrincipal" aria-controls="navbarPrincipal" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarPrincipal">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="cadastrar.html">Cadastrar</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="consulta.html">Consultar</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Fim Menu principal -->
+
+    <!-- Container principal -->
+    <div class="container mt-5">
+
+        <div class="row mb-5">
+            <div class="col">
+                <h1 class="display-4">Cadastrar dispesa</h1>
+            </div>
+        </div>
+
+        <div class="row ">
+
+            <div class="col">
+
+                <!-- Form cadastro de despesa -->
+                <form action="">
+
+                    <!-- Input Data da Despesa -->
+                    <div class="form-group mb-5">
+                        <div class="form-row">
+
+                            <!-- Input Data -->
+                            <div class="col-md-3 col-sm-6">
+                                <label for="inputData"><i class="far fa-calendar-alt"></i> Data</label>
+                                <input type="date"  class="form-control" id="inputData">
+                            </div>
+                            <!-- Fim Input Data -->
+
+                        </div>
+                    </div>
+                    <!-- Fim Input Data da Despesa -->
+
+                    <!-- Inputs Detalhes despesa -->
+                    <div class="form-group mb-5">
+
+                        <!-- FormGroup titulo -->
+                        <p class="label">
+                            <i class="fas fa-file-invoice-dollar"></i> Detalhes
+                        </p>
+                        <!-- Fim FormGroup titulo -->
+
+                    
+                        <div class="form-row">
+
+                            <!-- Input Dia -->
+                            <div class="col-md-3 col-sm-12">
+                                <label for="inputTipo">Tipo</label>
+                                <select class="form-control" id="inputTipo" name="inputTipo">
+                                    <option></option>
+                                    <option value="1">Alimentação</option>
+                                    <option value="2">Educação</option>
+                                    <option value="3">Lazer</option>
+                                    <option value="4">Saúde</option>
+                                    <option value="5">Transporte</option>
+                                    <option value="6">Outros</option>
+                                </select>
+                            </div>
+                            <!-- Fim Input Dia -->
+
+                            <div class="col-md-6 col-sm-12">
+                                <label for="inputDescricao">Descrição</label>
+                                <input type="text" class="form-control" id="inputDescricao" name="inputDescricao">
+                            </div>
+
+                            <div class="col-md-3 col-sm-12">
+                                <label for="inputValor">Valor</label>
+                                <input type="text" class="form-control" id="inputValor" name="inputValor">
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- Fim Inputs Descrição despesa -->
+
+                     <!-- Inicio div Botões -->
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-success" onclick="cadastrarDispesa()"><i class="fas fa-plus"></i> Adicionar</button>
+                                    <button class="btn btn-danger"><i class="fas fa-eraser"></i> Limpar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Fim div Botões -->
+
+                </form>
+                <!-- Fim Form cadastro de despesa -->
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Fim Container principal -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+
+</html>
