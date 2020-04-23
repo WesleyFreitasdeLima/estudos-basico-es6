@@ -49,9 +49,8 @@ class DataBase {
     }
 }
 
-
-
 let db = new DataBase();
+
 
 function cadastrarDispesa() {
 
@@ -67,9 +66,32 @@ function cadastrarDispesa() {
         valor.value);
 
     if (despesa.validarDados() === false) {
-        console.log('Dados invalidos!')
+
+        document.getElementById('titulo_validacao').className = 'modal-title text-danger';
+        document.getElementById('titulo_validacao').innerHTML = `<i class="fas fa-exclamation-triangle"></i> Erro ao inserir registro`;
+        document.getElementById('mensagem_validacao').innerHTML = `Existem campos obrigatórios que não foram preenchidos.`;
+        document.getElementById('botao_validacao').className = 'btn btn-danger';
+        document.getElementById('botao_validacao').innerHTML = `Voltar e corrigir`;
+        $('#modalValidacaoGravacao').modal('show');
+
     } else {
         db.gravar(despesa);
+
+        document.getElementById('titulo_validacao').className = 'modal-title text-success';
+        document.getElementById('titulo_validacao').innerHTML = `<i class="fas fa-check-circle"></i> Registro inserido com sucesso`;
+        document.getElementById('mensagem_validacao').innerHTML = `Dispesa cadastrada com sucesso!`;
+        document.getElementById('botao_validacao').className = 'btn btn-success';
+        document.getElementById('botao_validacao').innerHTML = `Voltar`;
+        $('#modalValidacaoGravacao').modal('show');
+
     }
 
+}
+
+function limparCamposPreenchidos() {
+    let inputs = document.getElementsByClassName('form-control');
+
+    for (const index in inputs) {
+        inputs[index].value = '';
+    }
 }
