@@ -5,6 +5,18 @@ class Despesa {
         this.descricao = descricao;
         this.valor = parseFloat(valor);
     }
+
+    validarDados() {
+        // Laço que acessa todos os campos fornecidos e valida se estão preenchidos correntamente, caso contrário retorna false
+        for (let indice in this) {
+            if (this[indice] === null || this[indice] === undefined || this[indice] === '') {
+                return false
+            }
+        }
+
+        // Caso todos os campos estiverem OK
+        return true;
+    }
 }
 
 class DataBase {
@@ -29,7 +41,7 @@ class DataBase {
     // Grava despesa no Local Storage
     gravar(d) {
         // Armazena despesa
-        let id =  this.geraProximoId();
+        let id = this.geraProximoId();
         localStorage.setItem(id, JSON.stringify(d));
 
         // Atualiza ultimo ID registrado
@@ -54,6 +66,10 @@ function cadastrarDispesa() {
         descricao.value,
         valor.value);
 
-    db.gravar(despesa);
+    if (despesa.validarDados() === false) {
+        console.log('Dados invalidos!')
+    } else {
+        db.gravar(despesa);
+    }
 
 }
