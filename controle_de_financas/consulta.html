@@ -17,7 +17,7 @@
     <script src="app.js"></script>
 </head>
 
-<body>
+<body onload="carregaListaDispesa()">
     <!-- Menu de navegação -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">
@@ -41,124 +41,129 @@
     </nav>
     <!-- Fim Menu principal -->
 
+
     <!-- Container principal -->
     <div class="container mt-5">
 
+        <!-- Inicio da div com o header da pagina -->
         <div class="row mb-5">
             <div class="col">
                 <h1 class="display-4">Consultar dispesa</h1>
             </div>
         </div>
+        <!-- Fim da div com o header da pagina -->
 
+
+        <!-- Inicio da div com filtros de busca -->
         <div class="row mb-5" id="filtrosBusca">
 
             <div class="col">
 
-                <!-- Form consulta de despesa -->
-                <form action="">
+                <!-- Input Data da Despesa -->
+                <div class="form-group mb-5">
+                    <div class="form-row">
 
-                    <!-- Input Data da Despesa -->
-                    <div class="form-group mb-5">
-                        <div class="form-row">
-
-                            <!-- Input Data -->
-                            <div class="col-md-3 col-sm-6">
-                                <label for="inputData"><i class="far fa-calendar-alt"></i> Data</label>
-                                <input type="date"  class="form-control" id="inputData" name="inputData">
-                            </div>
-                            <!-- Fim Input Data -->
-
+                        <!-- Input Data -->
+                        <div class="col-md-3 col-sm-6">
+                            <label for="inputData"><i class="far fa-calendar-alt"></i> Data</label>
+                            <input type="date" class="form-control" id="inputData" name="inputData">
                         </div>
+                        <!-- Fim Input Data -->
+
                     </div>
-                    <!-- Fim Input Data da Despesa -->
+                </div>
+                <!-- Fim Input Data da Despesa -->
 
-                    <!-- Inputs Detalhes despesa -->
-                    <div class="form-group mb-5">
+                <!-- Inputs Detalhes despesa -->
+                <div class="form-group mb-5">
 
-                        <!-- FormGroup titulo -->
-                        <p class="label">
-                            <i class="fas fa-file-invoice-dollar"></i> Detalhes
-                        </p>
-                        <!-- Fim FormGroup titulo -->
+                    <!-- FormGroup titulo -->
+                    <p class="label">
+                        <i class="fas fa-file-invoice-dollar"></i> Detalhes
+                    </p>
+                    <!-- Fim FormGroup titulo -->
 
-                    
-                        <div class="form-row">
 
-                            <!-- Input Dia -->
-                            <div class="col-md-3 col-sm-12">
-                                <label for="inputTipo">Tipo</label>
-                                <select class="form-control" id="inputTipo" name="inputTipo">
-                                    <option></option>
-                                    <option>Alimentação</option>
-                                    <option>Educação</option>
-                                    <option>Lazer</option>
-                                    <option>Saúde</option>
-                                    <option>Transporte</option>
-                                    <option>Outros</option>
-                                </select>
-                            </div>
-                            <!-- Fim Input Dia -->
+                    <div class="form-row">
 
-                            <div class="col-md-6 col-sm-12">
-                                <label for="inputDescricao">Descrição</label>
-                                <input type="text" class="form-control" id="inputDescricao" name="inputDescricao">
-                            </div>
+                        <!-- Input Dia -->
+                        <div class="col-md-3 col-sm-12">
+                            <label for="inputTipo">Tipo</label>
+                            <select class="form-control" id="inputTipo" name="inputTipo">
+                                <option></option>
+                                <option>Alimentação</option>
+                                <option>Educação</option>
+                                <option>Lazer</option>
+                                <option>Saúde</option>
+                                <option>Transporte</option>
+                                <option>Outros</option>
+                            </select>
+                        </div>
+                        <!-- Fim Input Dia -->
 
-                            <div class="col-md-3 col-sm-12">
-                                <label for="inputValor">Valor</label>
-                                <input type="text" class="form-control" id="inputValor" name="inputValor">
-                            </div>
+                        <div class="col-md-6 col-sm-12">
+                            <label for="inputDescricao">Descrição</label>
+                            <input type="text" class="form-control" id="inputDescricao" name="inputDescricao">
+                        </div>
 
+                        <div class="col-md-3 col-sm-12">
+                            <label for="inputValor">Valor</label>
+                            <input type="text" class="form-control" id="inputValor" name="inputValor">
                         </div>
 
                     </div>
-                    <!-- Fim Inputs Descrição despesa -->
 
-                    <!-- Botões -->
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div class="col">
-                                <div class="btn-group">
-                                    <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> Buscar</button>
-                                    <button type="button" class="btn btn-danger"><i class="fas fa-eraser"></i> Limpar</button>
-                                </div>
+                </div>
+                <!-- Fim Inputs Descrição despesa -->
+
+                <!-- Botões -->
+                <div class="form-group">
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-success"><i class="fas fa-search"></i>
+                                    Buscar</button>
+                                <button type="button" class="btn btn-danger"><i class="fas fa-eraser"></i>
+                                    Limpar</button>
                             </div>
                         </div>
                     </div>
-                    <!-- Fim Botões -->
+                </div>
+                <!-- Fim Botões -->
 
-                </form>
-                <!-- Fim Form consulta de despesa -->
             </div>
 
         </div>
+        <!-- Fim  da div com filtros de busca -->
 
-        <div class="row" id="resultadosBusca">
+
+        <!-- Inicio da div com lista de despesas -->
+        <div class="row">
             <div class="col-12">
                 <h3 class="display-8">Resultados da busca</h1>
             </div>
             <div class="col-12">
-                <table class="table">
+                <table class="table" id="tabela_lista_despesas">
                     <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Data</th>
-                        <th scope="col">Tipo</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Valor</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">Data</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Valor</th>
+                            <th scope="col"></th>
+                        </tr>
                     </thead>
-                    <tbody>
-
+                    <tbody id="lista_despesas">
                     </tbody>
                 </table>
             </div>
-        </div>    
+        </div>
+        <!-- Fim da div com lista de despesas -->
 
     </div>
     <!-- Fim Container principal -->
 
-    
+
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

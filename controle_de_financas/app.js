@@ -47,10 +47,39 @@ class DataBase {
         // Atualiza ultimo ID registrado
         localStorage.setItem('id', id);
     }
+
+    recuperarTodosRegistros() {
+
+
+        // Pega o ultimo ID registrado, que indica tbm a quantidade total de registros
+        let total_registros = parseInt(localStorage.getItem('id'));
+
+        // Array que vai armazenar a lista de todas as depesas
+        let despesas = [];
+
+        // Recupera todas despesas armazenada no localStorage
+        for (let id = 1; id <= total_registros; id++) {
+
+            // Converte o JSON armazenado para obj literal
+            let despesa = JSON.parse(localStorage.getItem(id));
+
+            // Pula indices removidos
+            if (despesa === null) {
+                continue;
+            }
+
+            // Armazena despesa no array
+            despesas.push(despesa);
+
+        }
+
+        return despesas;
+
+    }
+
 }
 
 let db = new DataBase();
-
 
 function cadastrarDispesa() {
 
@@ -79,19 +108,80 @@ function cadastrarDispesa() {
 
         document.getElementById('titulo_validacao').className = 'modal-title text-success';
         document.getElementById('titulo_validacao').innerHTML = `<i class="fas fa-check-circle"></i> Registro inserido com sucesso`;
-        document.getElementById('mensagem_validacao').innerHTML = `Dispesa cadastrada com sucesso!`;
+        document.getElementById('mensagem_validacao').innerHTML = `Despesa cadastrada com sucesso!`;
         document.getElementById('botao_validacao').className = 'btn btn-success';
         document.getElementById('botao_validacao').innerHTML = `Voltar`;
         $('#modalValidacaoGravacao').modal('show');
+
+        limparCamposPreenchidos();
+
+    }
+
+}
+
+function carregaListaDispesa() {
+    // Armazena lista de despesas
+    let despesas = db.recuperarTodosRegistros();
+
+    // Selecionado o elemento tbody da tabela 'tabela_lista_despesas'
+    let lista_despesas = document.getElementById('lista_despesas');
+
+    if (despesas.length > 0) {
+
+        // Percorre array 'despesas' e lista dinamicamente cada despesa
+        despesas.forEach((despesa) => {
+
+            // Cria o <tr> da despesa
+            let linha = lista_despesas.insertRow();
+
+            // Cria o <td> da data da despesa
+            linha.insertCell(0).innerHTML = despesa.data;
+
+            // Cria o <td> do tipo da despesa
+            switch (parseInt(despesa.tipo)) {
+                case 1:
+                    despesa.tipo = 'Alimentação';
+                    break;
+                case 2:
+                    despesa.tipo = 'Educação';
+                    break;
+                case 3:
+                    despesa.tipo = 'Saúde';
+                    break;
+                case 4:
+                    despesa.tipo = 'Transporte';
+                    break;
+                default:
+                    despesa.tipo = 'Outros';
+                    break;
+            }
+            linha.insertCell(1).innerHTML = despesa.tipo;
+
+            // Cria o <td> da descrição da despesa   
+            linha.insertCell(2).innerHTML = despesa.descricao;
+
+            // Cria o <td> do valor da despesa
+            linha.insertCell(3).innerHTML = `R$${despesa.valor.toFixed(2)}`;
+
+            // Cria o <td> com as opções de ação
+            linha.insertCell(4).innerHTML = '';
+
+        })
+
+    } else {
+
+        lista_despesas.innerHTML = '<tr><td colspan=4>Nenhuma despesa cadastrada<td></tr>';
 
     }
 
 }
 
 function limparCamposPreenchidos() {
+
     let inputs = document.getElementsByClassName('form-control');
 
-    for (const index in inputs) {
-        inputs[index].value = '';
+    for (let indice in inputs) {
+        inputs[indice].value = '';
     }
+
 }
