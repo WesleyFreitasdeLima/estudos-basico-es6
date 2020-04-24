@@ -61,13 +61,18 @@ class DataBase {
         // Recupera todas despesas armazenada no localStorage
         for (let id = 1; id <= total_registros; id++) {
 
+
             // Converte o JSON armazenado para obj literal
             let despesa = JSON.parse(localStorage.getItem(id));
+
 
             // Pula indices removidos
             if (despesa === null) {
                 continue;
             }
+
+            // Insere o id da despesa no objeto despesa
+            despesa.id = id;
 
             // Armazena despesa no array
             despesas.push(despesa);
@@ -100,6 +105,22 @@ class DataBase {
         }
 
         return despesas_filtradas;
+    }
+
+    // Excluí despesa do localStorage
+    excluir(id) {
+
+        let id_existe = localStorage.getItem(id);
+
+        // Caso o id não exista retorna false
+        if (id_existe === null) {
+            return false;
+        }
+
+        // Remove do localStoge de acordo o id informado
+        localStorage.removeItem(id);
+        return true;
+
     }
 
 }
@@ -196,8 +217,17 @@ function carregaListaDispesas(despesas = Array()) {
             // Cria o <td> do valor da despesa
             linha.insertCell(3).innerHTML = `R$${despesa.valor.toFixed(2)}`;
 
-            // Cria o <td> com as opções de ação
-            linha.insertCell(4).innerHTML = '';
+            // Cria o <td> com o botão de exclusão
+            let btn = document.createElement('button');
+            btn.id = `id_despesa_${despesa.id}`;
+            btn.className = 'btn btn-sm btn-danger';
+            btn.innerHTML = '<i class="fas fa-trash-alt"></i> Excluir';
+            btn.onclick = function() {
+                // Obtém o id da despesa a ser removida
+                let id = this.id.replace('id_despesa_', '');
+                excluirDespesa(id);
+            };
+            linha.insertCell(4).append(btn);
 
         })
 
@@ -206,6 +236,36 @@ function carregaListaDispesas(despesas = Array()) {
         lista_despesas.innerHTML = '<tr><td colspan=4>Nenhum registro encontrado<td></tr>';
 
     }
+
+}
+
+function excluirDespesa(id) {
+
+    // Exclui o registro do localStorage de acordo com o id informado
+    if (db.excluir(id) === true) {
+
+        // Exibe o modal de validação
+        document.getElementById('titulo_validacao').className = 'modal-title text-success';
+        document.getElementById('titulo_validacao').innerHTML = `<i class="fas fa-check-circle"></i> Registro excluido com sucesso`;
+        document.getElementById('mensagem_validacao').innerHTML = `Despesa excluida com sucesso!`;
+        document.getElementById('botao_validacao').className = 'btn btn-success';
+        document.getElementById('botao_validacao').innerHTML = `Voltar`;
+        $('#modalValidacaoExclusao').modal('show');
+
+    } else {
+
+        // Exibe o modal de validação
+        document.getElementById('titulo_validacao').className = 'modal-title text-danger';
+        document.getElementById('titulo_validacao').innerHTML = `<i class="fas fa-exclamation-triangle"></i> Erro ao excluir registro`;
+        document.getElementById('mensagem_validacao').innerHTML = `Erro ao excluir registro.`;
+        document.getElementById('botao_validacao').className = 'btn btn-danger';
+        document.getElementById('botao_validacao').innerHTML = `Voltar`;
+        $('#modalValidacaoExclusao').modal('show');
+
+    }
+
+    // Recarrega a lista de despesa
+    carregaListaDispesas();
 
 }
 
