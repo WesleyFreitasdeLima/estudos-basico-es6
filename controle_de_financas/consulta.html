@@ -17,7 +17,8 @@
     <script src="app.js"></script>
 </head>
 
-<body onload="carregaListaDispesa()">
+<body onload="carregaListaDispesas()">
+
     <!-- Menu de navegação -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">
@@ -48,7 +49,7 @@
         <!-- Inicio da div com o header da pagina -->
         <div class="row mb-5">
             <div class="col">
-                <h1 class="display-4">Consultar dispesa</h1>
+                <h1 class="display-4">Consultar despesa</h1>
             </div>
         </div>
         <!-- Fim da div com o header da pagina -->
@@ -56,25 +57,24 @@
 
         <!-- Inicio da div com filtros de busca -->
         <div class="row mb-5" id="filtrosBusca">
-
             <div class="col">
 
-                <!-- Input Data da Despesa -->
+                <!-- Filtro Data da Despesa -->
                 <div class="form-group mb-5">
                     <div class="form-row">
 
-                        <!-- Input Data -->
+                        <!-- Filtro Data -->
                         <div class="col-md-3 col-sm-6">
-                            <label for="inputData"><i class="far fa-calendar-alt"></i> Data</label>
-                            <input type="date" class="form-control" id="inputData" name="inputData">
+                            <label for="filtroData"><i class="far fa-calendar-alt"></i> Data</label>
+                            <input type="date" class="form-control" id="filtroData" name="filtroData">
                         </div>
-                        <!-- Fim Input Data -->
+                        <!-- Fim Filtro Data -->
 
                     </div>
                 </div>
-                <!-- Fim Input Data da Despesa -->
+                <!-- Fim Filtro Data da Despesa -->
 
-                <!-- Inputs Detalhes despesa -->
+                <!-- Filtros Detalhes despesa -->
                 <div class="form-group mb-5">
 
                     <!-- FormGroup titulo -->
@@ -83,33 +83,36 @@
                     </p>
                     <!-- Fim FormGroup titulo -->
 
-
                     <div class="form-row">
 
-                        <!-- Input Dia -->
+                        <!-- Inicio da div filtro Dia -->
                         <div class="col-md-3 col-sm-12">
-                            <label for="inputTipo">Tipo</label>
-                            <select class="form-control" id="inputTipo" name="inputTipo">
+                            <label for="filtroTipo">Tipo</label>
+                            <select class="form-control" id="filtroTipo" name="filtroTipo">
                                 <option></option>
-                                <option>Alimentação</option>
-                                <option>Educação</option>
-                                <option>Lazer</option>
-                                <option>Saúde</option>
-                                <option>Transporte</option>
-                                <option>Outros</option>
+                                <option value='1'>Alimentação</option>
+                                <option value='2'>Educação</option>
+                                <option value='3'>Lazer</option>
+                                <option value='4'>Saúde</option>
+                                <option value='5'>Transporte</option>
+                                <option value='6'>Outros</option>
                             </select>
                         </div>
-                        <!-- Fim Input Dia -->
+                        <!-- Fim da div filtro Dia -->
 
+                        <!-- Inicio da div de filtro Descrição -->
                         <div class="col-md-6 col-sm-12">
-                            <label for="inputDescricao">Descrição</label>
-                            <input type="text" class="form-control" id="inputDescricao" name="inputDescricao">
+                            <label for="filtroDescricao">Descrição</label>
+                            <input type="text" class="form-control" id="filtroDescricao" name="filtroDescricao">
                         </div>
+                        <!-- Fim da div de filtro Descrição -->
 
+                        <!-- Inicio da div de filtro Valor -->
                         <div class="col-md-3 col-sm-12">
-                            <label for="inputValor">Valor</label>
-                            <input type="text" class="form-control" id="inputValor" name="inputValor">
+                            <label for="filtroValor">Valor</label>
+                            <input type="text" class="form-control" id="filtroValor" name="filtroValor">
                         </div>
+                        <!-- Fim da div de filtro Valor -->
 
                     </div>
 
@@ -121,10 +124,12 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="btn-group">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-search"></i>
-                                    Buscar</button>
-                                <button type="button" class="btn btn-danger"><i class="fas fa-eraser"></i>
-                                    Limpar</button>
+                                <button type="submit" class="btn btn-success" onclick="pesquisarDespesa()">
+                                    <i class="fas fa-search"></i> Buscar
+                                </button>
+                                <button type="button" class="btn btn-danger" onclick="limparCamposPreenchidos()">
+                                    <i class="fas fa-eraser"></i> Limpar
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -132,7 +137,6 @@
                 <!-- Fim Botões -->
 
             </div>
-
         </div>
         <!-- Fim  da div com filtros de busca -->
 

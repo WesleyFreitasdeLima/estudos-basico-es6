@@ -6,6 +6,7 @@ class Despesa {
         this.valor = parseFloat(valor);
     }
 
+    // Verifica se todos os campos foram fornecidos
     validarDados() {
         // Laço que acessa todos os campos fornecidos e valida se estão preenchidos correntamente, caso contrário retorna false
         for (let indice in this) {
@@ -38,7 +39,7 @@ class DataBase {
         return proximoId;
     }
 
-    // Grava despesa no Local Storage
+    // Grava despesa no localStorage
     gravar(d) {
         // Armazena despesa
         let id = this.geraProximoId();
@@ -48,8 +49,8 @@ class DataBase {
         localStorage.setItem('id', id);
     }
 
+    // Recupera todos registro do localStorage e retorna em array
     recuperarTodosRegistros() {
-
 
         // Pega o ultimo ID registrado, que indica tbm a quantidade total de registros
         let total_registros = parseInt(localStorage.getItem('id'));
@@ -75,6 +76,30 @@ class DataBase {
 
         return despesas;
 
+    }
+
+    // Recupera todos registro do localStorage, filtra a despesa de acordo com os filtros dos inputs e retorna em array 
+    pesquisar(despesa) {
+
+        let despesas_filtradas = this.recuperarTodosRegistros();
+
+        if (despesa.data) {
+            despesas_filtradas = despesas_filtradas.filter(d => d.data === despesa.data);
+        }
+
+        if (despesa.tipo) {
+            despesas_filtradas = despesas_filtradas.filter(d => d.tipo === despesa.tipo);
+        }
+
+        if (despesa.descricao) {
+            despesas_filtradas = despesas_filtradas.filter(d => d.descricao === despesa.descricao);
+        }
+
+        if (despesa.valor) {
+            despesas_filtradas = despesas_filtradas.filter(d => d.valor === despesa.valor);
+        }
+
+        return despesas_filtradas;
     }
 
 }
@@ -104,6 +129,7 @@ function cadastrarDispesa() {
         $('#modalValidacaoGravacao').modal('show');
 
     } else {
+
         db.gravar(despesa);
 
         document.getElementById('titulo_validacao').className = 'modal-title text-success';
@@ -119,14 +145,21 @@ function cadastrarDispesa() {
 
 }
 
-function carregaListaDispesa() {
-    // Armazena lista de despesas
-    let despesas = db.recuperarTodosRegistros();
+function carregaListaDispesas(despesas = Array()) {
 
-    // Selecionado o elemento tbody da tabela 'tabela_lista_despesas'
+    // Caso não seja informado nenhuma lista de referencia na chamada da função, carrega as despesas registradas no localStorage
+    if (despesas.length === 0) {
+        despesas = db.recuperarTodosRegistros();
+    }
+
+    // Selecionado o elemento <tbody> da tabela 'tabela_lista_despesas'
     let lista_despesas = document.getElementById('lista_despesas');
 
+    // Caso ele contenha alguma despesa a ser exibida ele faz o tratamento, do contrário exibe a mensagem que não há registros.
     if (despesas.length > 0) {
+
+        // Limpa valores antigos da tabela
+        lista_despesas.innerHTML = '';
 
         // Percorre array 'despesas' e lista dinamicamente cada despesa
         despesas.forEach((despesa) => {
@@ -170,16 +203,35 @@ function carregaListaDispesa() {
 
     } else {
 
-        lista_despesas.innerHTML = '<tr><td colspan=4>Nenhuma despesa cadastrada<td></tr>';
+        lista_despesas.innerHTML = '<tr><td colspan=4>Nenhum registro encontrado<td></tr>';
 
     }
 
 }
 
+function pesquisarDespesa() {
+
+    // Armena os valores dos input dos filtros
+    let data = document.getElementById('filtroData').value;
+    let tipo = document.getElementById('filtroTipo').value;
+    let descricao = document.getElementById('filtroDescricao').value;
+    let valor = document.getElementById('filtroValor').value;
+    let despesa = new Despesa(data, tipo, descricao, valor);
+
+    // Armazena lista de despesas filtradas
+    let despesas_filtradas = db.pesquisar(despesa);
+
+    // Exibe no <tbody> da tabela 'tabela_lista_despesas' os registros filtrados
+    carregaListaDispesas(despesas_filtradas);
+
+}
+
 function limparCamposPreenchidos() {
 
+    // Obtem todos os inputs da classe 'form-control' e armaneza em um array
     let inputs = document.getElementsByClassName('form-control');
 
+    // Percorre o array dos inputs e limpa os valores preenchidos de cada input processado
     for (let indice in inputs) {
         inputs[indice].value = '';
     }
